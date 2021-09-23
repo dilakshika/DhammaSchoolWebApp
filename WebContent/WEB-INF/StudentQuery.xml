@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Querys>
+
+	<!-- Create table student Query -->
+	<query id="create_student_table">
+        <![CDATA[
+            CREATE TABLE student(
+				InNo varchar(20) not null,
+				Fname varchar(50),
+				IName varchar(50),
+				Address varchar(100),
+				Birthday varchar(15),
+				Gender  varchar(50) DEFAULT 'Male' not null,
+				Guardian varchar(20),
+				Mobile varchar(10), 
+				ADate varchar(15),
+				Position varchar(20),
+				Comment varchar(300),
+				primary key (InNo)
+			)
+        ]]>
+	</query>
+
+	DROP TABLE STUDENTS Query
+	<query id="drop_table_student">
+         <![CDATA[        
+             DROP TABLE IF EXISTS student 
+         ]]> -->
+	</query>
+
+	<!-- Select all customer orders Query -->
+	<query id="insert_student">
+        <![CDATA[
+          	insert into student (InNo, Fname, IName, Address, Birthday,  Gender, Guardian, Mobile, ADate, Position, Comment) 
+          	values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ]]>
+	</query>
+
+	<!-- Select a particular student by id Query -->
+	<query id="student_by_id">
+         <![CDATA[        
+            select * from student where student.InNo = ?
+        ]]>
+	</query>
+
+	<!-- Select all students -->
+	<query id="all_students">
+         <![CDATA[        
+            select * from student
+        ]]>
+	</query>
+
+	<!-- Delete a particular student by id Query -->
+	<query id="remove_student">
+         <![CDATA[        
+            delete from student where student.InNo = ?
+        ]]>
+	</query>
+	
+	<!-- Update a particular student by id Query -->
+	<query id="update_student">
+         <![CDATA[        
+            update student as e 
+            set e.Fname = ?, e.IName = ?,  e.Address = ?, e.Birthday = ?, e.Gender = ?, e.Guardian = ?, e.Mobile = ?, e.ADate = ?,  e.Position = ?, e.Comment = ? 
+            where e.InNo = ?
+        ]]>
+	</query>
+	
+		<!-- Get student IDs Query -->
+	<query id="student_ids">
+         <![CDATA[        
+            select e.InNo from student as e
+        ]]>
+	</query>
+	
+	
+	<!-- Create table result Query -->
+	<query id="create_result_table">
+        <![CDATA[
+            CREATE TABLE result(
+				ResultId varchar(20) not null,
+				sid varchar(20),
+				name varchar(25),
+				year varchar(15),
+				grade varchar(15),
+				exam varchar(50),
+				result varchar(20),
+				password varchar(10),
+				primary key (ResultId)
+			)
+        ]]>
+	</query>
+
+	DROP TABLE DOCTORS Query
+	<query id="drop_table_result">
+         <![CDATA[        
+             DROP TABLE IF EXISTS result  
+        ]]> 
+	</query>
+
+	<!-- Select all customer orders Query -->
+	<query id="insert_result">
+        <![CDATA[
+          	insert into result (ResultId, sid, name, year, grade, exam, result, password) 
+          	values (?, ?, ?, ?, ?, ?, ?, ?)
+        ]]>
+	</query>
+
+	<!-- Select a particular doctor by id Query -->
+	<query id="result_by_id">
+         <![CDATA[        
+            select * from result where result.ResultId = ?
+        ]]>
+	</query>
+
+	<!-- Select all doctors -->
+	<query id="all_results">
+         <![CDATA[        
+            select * from result
+        ]]>
+	</query>
+
+	<!-- Delete a particular doctor by id Query -->
+	<query id="remove_result">
+         <![CDATA[        
+            delete from result where result.ResultId = ?
+        ]]>
+	</query>
+	
+	<!-- Update a particular employee by id Query -->
+	<query id="update_result">
+         <![CDATA[        
+            update result as e 
+            set e.sid = ?, e.name = ?, e.year = ?, e.grade = ?, e.exam = ?, e.result = ?, e.password = ? 
+            where e.ResultId = ?
+        ]]>
+	</query>
+	
+		<!-- Get doctor IDs Query -->
+	<query id="result_ids">
+         <![CDATA[        
+            select e.ResultId from result as e
+        ]]>
+	</query>
+	
+	<!-- Create table doctor Query -->
+	<query id="create_notice_table">
+        <![CDATA[
+            CREATE TABLE notice(
+				NoticeId varchar(20) not null,
+				Nname varchar(20),
+				Ndate varchar(15),
+				Nowner varchar(15),
+				Notice varchar(100),
+				primary key (NoticeId)
+			)
+        ]]>
+	</query>
+
+	DROP TABLE DOCTORS Query
+	<query id="drop_table_notice">
+         <![CDATA[        
+<!--             DROP TABLE IF EXISTS notice  -->
+<!--         ]]> -->
+	</query>
+
+	<!-- Select all customer orders Query -->
+	<query id="insert_notice">
+        <![CDATA[
+          	insert into notice (NoticeId, Nname, Ndate, Nowner, Notice) 
+          	values (?, ?, ?, ?, ?)
+        ]]>
+	</query>
+
+	<!-- Select a particular doctor by id Query -->
+	<query id="notice_by_id">
+         <![CDATA[        
+            select * from notice where notice.NoticeId = ?
+        ]]>
+	</query>
+
+	<!-- Select all doctors -->
+	<query id="all_notices">
+         <![CDATA[        
+            select * from notice
+        ]]>
+	</query>
+
+	<!-- Delete a particular doctor by id Query -->
+	<query id="remove_notice">
+         <![CDATA[        
+            delete from notice where notice.NoticeId = ?
+        ]]>
+	</query>
+	
+	<!-- Update a particular employee by id Query -->
+	<query id="update_notice">
+         <![CDATA[        
+            update notice as e 
+            set e.Nname = ?, e.Ndate = ?, e.Nowner = ?, e.Notice = ?
+            where e.NoticeId = ?
+        ]]>
+	</query>
+	
+		<!-- Get doctor IDs Query -->
+	<query id="notice_ids">
+         <![CDATA[        
+            select e.NoticeId from notice as e
+        ]]>
+	</query>
+	
+	<!-- Create table timetable Query -->
+	<query id="create_timetable_table">
+        <![CDATA[
+            CREATE TABLE timetable(
+				TimetableId varchar(20) not null,
+				name varchar(40),
+				year varchar(20),
+				firstSubject varchar(100),
+				firstLecturer varchar(100),
+				secondSubject varchar(100),
+				secondLecturer varchar(100),
+				thirdSubject varchar(100),
+				thirdLecturer varchar(100),
+				fourthSubject varchar(100),
+				fourthLecturer varchar(100),
+				primary key (TimetableId)
+			)
+        ]]>
+	</query>
+
+	DROP TABLE timetable Query 
+	<query id="drop_table_timatable">
+         <![CDATA[        
+             DROP TABLE IF EXISTS timetable  
+       ]]> 
+	</query>
+
+	<!-- Select all timetable  Query -->
+	<query id="insert_timetable">
+        <![CDATA[
+          	insert into timetable (TimetableId, name, year, firstSubject, firstLecturer, secondSubject, secondLecturer, thirdSubject , thirdLecturer, fourthSubject, fourthLecturer ) 
+          	values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ]]>
+	</query>
+
+	<!-- Select a particular timetable by id Query -->
+	<query id="timetable_by_id">
+         <![CDATA[        
+            select * from timetable where timetable.TimetableId = ?
+        ]]>
+	</query>
+
+	<!-- Select all timetable -->
+	<query id="all_timetables">
+         <![CDATA[        
+            select * from timetable
+        ]]>
+	</query>
+
+	<!-- Delete a particular timetable by id Query -->
+	<query id="remove_timetable">
+         <![CDATA[        
+            delete from timetable where timetable.TimetableId = ?
+        ]]>
+	</query>
+	
+	<!-- Update a particular timetable by id Query -->
+	<query id="update_timetable">
+         <![CDATA[        
+            update timetable as e 
+            set e.name = ?, e.year = ?, e.firstSubject = ?, e.firstLecturer = ?, e.secondSubject = ?, e.secondLecturer = ?, e.thirdSubject = ? , e.thirdLecturer = ?, e.fourthSubject = ?, e.fourthLecturer = ?
+            where e.TimetableId = ?
+        ]]>
+	</query>
+	
+		<!-- Get timetable IDs Query -->
+	<query id="timetable_ids">
+         <![CDATA[        
+            select e.TimetableId from timetable as e
+        ]]>
+	</query>
+	
+	
+	<!-- Create table doctor Query -->
+	<query id="create_user_table">
+        <![CDATA[
+            CREATE TABLE user(
+				UserId varchar(10) not null,
+				FName varchar(20),
+				LName varchar(15),
+				Email varchar(15),
+				ContactNumber varchar(15),
+				UserType varchar(50),
+				Username varchar(20),
+				Password varchar(10),
+				primary key (UserId)
+			)
+        ]]>
+	</query>
+
+	<!-- DROP TABLE DOCTORS Query -->
+<!-- 	<query id="drop_table"> -->
+<!--          <![CDATA[         -->
+<!--             DROP TABLE IF EXISTS user  -->
+<!--         ]]> -->
+<!-- 	</query> -->
+
+	<!-- Select all customer orders Query -->
+	<query id="insert_user">
+        <![CDATA[
+          	insert into user (UserId, FName, LName, Email, ContactNumber, UserType, Username, Password) 
+          	values (?, ?, ?, ?, ?, ?, ?, ?)
+        ]]>
+	</query>
+
+	<!-- Select a particular doctor by id Query -->
+	<query id="user_by_id">
+         <![CDATA[        
+            select * from user where user.UserId = ?
+        ]]>
+	</query>
+
+	<!-- Select all doctors -->
+	<query id="all_users">
+         <![CDATA[        
+            select * from user
+        ]]>
+	</query>
+
+	<!-- Delete a particular doctor by id Query -->
+	<query id="remove_user">
+         <![CDATA[        
+            delete from user where user.UserId = ?
+        ]]>
+	</query>
+	
+	<!-- Update a particular employee by id Query -->
+	<query id="update_user">
+         <![CDATA[        
+            update user as e 
+            set e.FName = ?, e.LName = ?, e.Email = ?, e.ContactNumber = ?, e.UserType = ?, e.Username = ?, e.Password = ? 
+            where e.UserId = ?
+        ]]>
+	</query>
+	
+		<!-- Get doctor IDs Query -->
+	<query id="user_ids">
+         <![CDATA[        
+            select e.UserId from user as e
+        ]]>
+	</query>
+
+
+<!-- Create table employee Query -->
+	<query id="create_employee_table">
+        <![CDATA[
+			  CREATE TABLE employee(
+				InNo varchar(10) not null,
+				Fname varchar(50),
+				IName varchar(50),
+				Address varchar(100),
+				Birthday varchar(15),
+				Gender  varchar(50) DEFAULT 'Male' not null,
+				Guardian varchar(20),
+				Mobile varchar(10), 
+				ADate varchar(15),
+				Position varchar(10),
+				Comment varchar(300),
+				primary key (InNo)
+			)
+        ]]>
+	</query>
+
+	<!-- DROP TABLE EMPLOYEES Query -->
+<!-- 	<query id="drop_table"> -->
+<!--          <![CDATA[         -->
+<!--             DROP TABLE IF EXISTS employee  -->
+<!--         ]]> -->
+<!-- 	</query> -->
+
+	<!-- Select all customer orders Query -->
+	<query id="insert_employee">
+        <![CDATA[
+     		 insert into employee (InNo, Fname, IName, Address, Birthday,  Gender, Guardian, Mobile, ADate, Position, Comment) 
+          	values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ]]>
+	</query>
+
+	<!-- Select a particular employee by id Query -->
+	<query id="employee_by_id">
+         <![CDATA[        
+            select * from employee where employee.InNo = ?
+        ]]>
+	</query>
+
+	<!-- Select all employees -->
+	<query id="all_employees">
+         <![CDATA[        
+            select * from employee
+        ]]>
+	</query>
+
+	<!-- Delete a particular employee by id Query -->
+	<query id="remove_employee">
+         <![CDATA[        
+            delete from employee where employee.InNo = ?
+        ]]>
+	</query>
+	
+	<!-- Update a particular employee by id Query -->
+	<query id="update_employee">
+         <![CDATA[        
+           update employee as e 
+            set e.Fname = ?, e.IName = ?,  e.Address = ?, e.Birthday = ?, e.Gender = ?, e.Guardian = ?, e.Mobile = ?, e.ADate = ?,  e.Position = ?, e.Comment = ? 
+            where e.InNo = ?
+        ]]>
+	</query>
+	
+		<!-- Get employee IDs Query -->
+	<query id="employee_ids">
+         <![CDATA[        
+            select e.InNo from employee as e
+        ]]>
+	</query>
+
+
+	<!-- Create table Event Query -->
+	<query id="create_event_table">
+        <![CDATA[
+            CREATE TABLE event(
+				id varchar(40) not null,
+				name varchar(200),
+				place varchar(50),
+				duration varchar(50),
+				date varchar(15),
+				stime varchar(15),
+				incharg_id varchar(20),
+				participants varchar(69),
+				primary key (id)
+			)
+        ]]>
+	</query>
+
+	<!-- DROP TABLE DOCTORS Query -->
+<!-- 	<query id="drop_table"> -->
+<!--          <![CDATA[         -->
+<!--             DROP TABLE IF EXISTS event  -->
+<!--         ]]> -->
+<!-- 	</query> -->
+
+	<!-- Select all customer orders Query -->
+	<query id="insert_event">
+        <![CDATA[
+          	insert into event (id, name, place, duration, date, stime, incharg_id, participants) 
+          	values (?, ?, ?, ?, ?, ?, ?, ?)
+        ]]>
+	</query>
+
+	<!-- Select a particular doctor by id Query -->
+	<query id="event_by_id">
+         <![CDATA[        
+            select * from event where event.id = ?
+        ]]>
+	</query>
+
+	<!-- Select all doctors -->
+	<query id="all_events">
+         <![CDATA[        
+            select * from event
+        ]]>
+	</query>
+
+	<!-- Delete a particular doctor by id Query -->
+	<query id="remove_event">
+         <![CDATA[        
+            delete from event where event.id = ?
+        ]]>
+	</query>
+	
+	<!-- Update a particular employee by id Query -->
+	<query id="update_event">
+         <![CDATA[        
+            update event as e 
+            set e.name = ?, e.place = ?, e.duration = ?, e.date = ?, e.stime = ?, e.incharg_id = ?, e.participants = ? 
+            where e.id = ?
+        ]]>
+	</query>
+	
+		<!-- Get doctor IDs Query -->
+	<query id="event_ids">
+         <![CDATA[        
+            select e.id from event as e
+        ]]>
+	</query>
+	
+	<!-- Create table doctor Query -->
+	<query id="create_attendance_table">
+        <![CDATA[
+            CREATE TABLE attendance(
+				AttendanceId varchar(20) not null,
+				stdId varchar(20),
+				stdGrade varchar(15),
+				stdArrivesTime varchar(15),
+				stdArrivesDate varchar(15),
+				primary key (AttendanceId)
+			)
+        ]]>
+	</query>
+
+	<!-- DROP TABLE DOCTORS Query -->
+<!-- 	<query id="drop_table"> -->
+<!--          <![CDATA[         -->
+<!--             DROP TABLE IF EXISTS attendance  -->
+<!--         ]]> -->
+<!-- 	</query> -->
+
+	<!-- Select all customer orders Query -->
+	<query id="insert_attendance">
+        <![CDATA[
+          	insert into attendance (AttendanceId, stdId, stdGrade, stdArrivesTime, stdArrivesDate) 
+          	values (?, ?, ?, ?, ?)
+        ]]>
+	</query>
+
+	<!-- Select a particular doctor by id Query -->
+	<query id="attendance_by_id">
+         <![CDATA[        
+            select * from attendance where attendance.AttendanceId = ?
+        ]]>
+	</query>
+
+	<!-- Select all doctors -->
+	<query id="all_attendances">
+         <![CDATA[        
+            select * from attendance
+        ]]>
+	</query>
+
+	<!-- Delete a particular doctor by id Query -->
+	<query id="remove_attendance">
+         <![CDATA[        
+            delete from attendance where attendance.AttendanceId = ?
+        ]]>
+	</query>
+	
+	<!-- Update a particular employee by id Query -->
+	<query id="update_attendance">
+         <![CDATA[        
+            update attendance as e 
+            set e.stdId = ?, e.stdGrade = ?, e.stdArrivesTime = ?, e.stdArrivesDate = ?
+            where e.AttendanceId = ?
+        ]]>
+	</query>
+	
+		<!-- Get doctor IDs Query -->
+	<query id="attendance_ids">
+         <![CDATA[        
+            select e.AttendanceId from attendance as e
+        ]]>
+	</query>
+</Querys>
